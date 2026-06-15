@@ -237,6 +237,14 @@ DOAC_STOP_PATTERNS = (
     r'thu hồi',
 )
 
+# Blood infusion
+# In clinical note blocks
+
+BLOOD_INFUSION_PATTERNS = (
+    "lĩnh[^.]{1,10}khối hồng cầu",
+    "lính[^.]{1,10}đơn vị máu",
+    "lính[^.]{1,10}máu tối cấp",
+)
 # ---------------------------------------------------------------------------
 # PDF artifact cleanup
 # Do not clean these artifacts because they will work for anchors
