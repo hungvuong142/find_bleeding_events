@@ -239,11 +239,18 @@ DOAC_STOP_PATTERNS = (
 
 # Blood infusion
 # In clinical note blocks
-
 BLOOD_INFUSION_PATTERNS = (
     "lĩnh[^.]{1,10}khối hồng cầu",
     "lính[^.]{1,10}đơn vị máu",
     "lính[^.]{1,10}máu tối cấp",
+)
+
+# Vitamin K infusion => not specific fot DOACs
+# Fresh frozen plasma infusion
+FFP_PATEERNS = (
+    "khối huyết tương tươi đông lạnh",
+    "htt[dđ]l",
+    "(?:khối|đơn vị) huyết tương tươi",
 )
 # ---------------------------------------------------------------------------
 # PDF artifact cleanup
