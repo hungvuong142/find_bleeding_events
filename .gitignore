@@ -1,0 +1,21 @@
+# Keep sensitive/local artifacts off GitHub
+data/
+text_vie_encoded/
+notebooks/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+tests/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.cursor/
+
+# Local scratch
+src/test_file.py
