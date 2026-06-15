@@ -199,12 +199,16 @@ BLEEDING_KEYWORDS = (
     "dịch dẫn lưu hồng",
 )
 
+# check randomly 10 med records => find some pattern
+# only get bleeding events from diagnosis and clinical notes => limit these blocks by {pdf.signed.pos}
 BLEEDING_INTERVENTION_KEYWORDS = (
-    "kẹp",
-    "clip",
+    "kẹp[^.]{1,10}clip", # kẹp N clip
     "mổ cầm máu",
+    "phẫu thuật[^.]{1,10}cầm máu",
+    "dẫn lưu[^.]{1,10}khối máu tụ",
 )
 
+# check negation phrases
 BLEEDING_NEGATION_PATTERNS = (
     r"không xuất huyết",
     r"không chảy máu",
@@ -220,6 +224,11 @@ TRIGGER_INR_THRESHOLD = 5.0
 TRIGGER_APTT_THRESHOLD_SEC = 100.0
 TRIGGER_HCT_HGB_DROP_FRACTION = 0.25
 
+# DOAC stop
+# 1. suddenly stopped (lag 1: yes, current: no)
+# 2. medication table: retrieved (đã thu hồi, thu hồi ... viên). Need totally retrieved, not partial (ex: from 2 vien to 1 vien, đã thu hồi 1 viên => partial withdraw)
+# 3. if a DOAC dose is reduced => re-calculate dose agreement. 
+
 DOAC_STOP_PATTERNS = (
     r"ngừng",
     r"dừng",
@@ -230,6 +239,7 @@ DOAC_STOP_PATTERNS = (
 
 # ---------------------------------------------------------------------------
 # PDF artifact cleanup
+# Do not clean these artifacts because they will work for anchors
 # ---------------------------------------------------------------------------
 
-RE_PDF_ARTIFACT = r"\{signlibrary\.[^}]+\}"
+RE_PDF_ARTIFACT = ""
