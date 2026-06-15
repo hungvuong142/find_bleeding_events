@@ -175,6 +175,7 @@ BSA_INDEX_M2 = 1.73 # normal body surface area in m2
 
 # ---------------------------------------------------------------------------
 # Exclusion — pregnancy (strict clinical patterns only)
+# (pregnancy should only be found in dianosis?)
 # ---------------------------------------------------------------------------
 
 PREGNANCY_EXCLUDE_PATTERNS = (
